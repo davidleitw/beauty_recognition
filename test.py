@@ -12,8 +12,8 @@ def Read_Img_File(Imgpath=None):
     return Imgname, ImgNumber
 
 if __name__ == '__main__':
-    path = '/media/davidlei/Transcend/Beauty_recognition/testdata/moe_five/'
-    dataset = os.listdir(r'/media/davidlei/Transcend/Beauty_recognition/testdata/moe_five/') # 307
+    path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/'
+    dataset = os.listdir(r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/') # 307
     dataset.sort()
     face = []
     # print(len(path))
@@ -30,7 +30,8 @@ if __name__ == '__main__':
         Img = face_recognition.load_image_file(os.path.join(path, ImgName))
 
         start = time.time()
-        local = face_recognition.face_locations(Img, model='cnn')
+        local = face_recognition.face_locations(Img)
+        # local = face_recognition.face_locations(Img, model='cnn')
         face.append(local)
         end = time.time()
         totaltime = totaltime + (end - start)
@@ -40,7 +41,8 @@ if __name__ == '__main__':
             fcount = fcount + 1
 
 
+    avgtime = totaltime / 10
+    print('ac% = {}'.format((10 - fcount)/10))
+    print('average time for each picture = {}'.format(avgtime) )
 
-    print('fcount = {}'.format(fcount))
-    print(face)
 
