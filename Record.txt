@@ -1,0 +1,5 @@
+using fave_recognition.face_locations(Img, model='cnn')
+
+ac% = 0.8
+	
+average time for each picture = 98.48621935844422
