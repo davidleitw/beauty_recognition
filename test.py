@@ -23,11 +23,11 @@ def Drawface(Img=None, args=(0, 0, 0, 0), ImgName=None):
         cv2.line(Img, (int((right + left)/2), top-60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
         cv2.line(Img, (int((right + left)/2), bottom+60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
         cv2.line(Img, (int((right + left)/2), bottom+60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
-        cv2.imshow('temp', Img)
-        print(os.path.join(SaveImg_path, ImgName))
+        # cv2.imshow('temp', Img)
+        # print(os.path.join(SaveImg_path, ImgName))
         cv2.imwrite(os.path.join(SaveImg_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     # print(dlib.DLIB_USE_CUDA)
@@ -51,8 +51,9 @@ if __name__ == '__main__':
         local = face_recognition.face_locations(Img, model='cnn') # => use cuda for face_recognition
         # A list of tuples of found face locations in css (top, right, bottom, left) order
         # local = face_recognition.face_locations(Img)
-        Drawface(Img, local, ImgName)
         end = time.time()
+
+        Drawface(Img, local, ImgName)
         totaltime = totaltime + (end - start)
 
         print('local = {}'.format(local))
