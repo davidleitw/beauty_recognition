@@ -4,7 +4,7 @@ import time
 import cv2
 import face_recognition
 import os
-SaveImg_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/test_finishdata'
+SaveImg_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/diamond_test'
 
 def Read_Img_File(Imgpath=None):
     Imgname = Imgpath
@@ -15,19 +15,42 @@ def Read_Img_File(Imgpath=None):
 
 def Drawface(Img=None, args=(0, 0, 0, 0), ImgName=None):
     # print(len(args))
-    if len(args) != 0:
-        # print('Img = {}'.format(Img))
-        top = args[0][0]; right = args[0][1]; bottom = args[0][2]; left = args[0][3]
-        print('top = {}, right = {}, bottom = {}, left = {}'.format(top, right, bottom, left))
-        cv2.line(Img, (int((right + left)/2), top-60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
-        cv2.line(Img, (int((right + left)/2), top-60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
-        cv2.line(Img, (int((right + left)/2), bottom+60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
-        cv2.line(Img, (int((right + left)/2), bottom+60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
-        # cv2.imshow('temp', Img)
-        # print(os.path.join(SaveImg_path, ImgName))
-        cv2.imwrite(os.path.join(SaveImg_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
-        # cv2.waitKey(0)
-        # cv2.destroyAllWindows()
+    lockingface(Img, ImgName, args, mode='diamond', save=True, save_path=SaveImg_path)
+
+def lockingface(Img=None, ImgName=None, point=(0, 0, 0, 0), mode='point', save=False, save_path=None):
+    '''
+    :param Img:
+    :param ImgName:
+    :param pointlist:
+    :param mode:
+    :param save:
+    :param save_path:
+    :return:
+    '''
+    if len(point) != 0:
+        top = point[0][0]; right = point[0][1]; bottom = point[0][2]; left = point[0][3]
+        Pointlist = [(left, top), (right, top), (left, bottom), (right, bottom)]
+
+        if mode == 'point':
+            try:
+                for point in Pointlist:
+                    cv2.circle(Img, point, 1, color=(255, 255, 0), thickness=4)
+                if save:
+                    cv2.imwrite(os.path.join(save_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+            except:
+                print('Error, maybe cv2 is not working, can draw the point on the picture')
+        elif mode == 'diamond':
+            try:
+                cv2.line(Img, (int((right + left)/2), top-60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
+                cv2.line(Img, (int((right + left)/2), top-60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
+                cv2.line(Img, (int((right + left)/2), bottom+60), (left-40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
+                cv2.line(Img, (int((right + left)/2), bottom+60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
+                if save:
+                    cv2.imwrite(os.path.join(save_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+            except:
+                print('Error, maybe cv2 is not working')
+    else:
+        print('len(point) == 1, that mean there is not face in our picture')
 
 if __name__ == '__main__':
     # print(dlib.DLIB_USE_CUDA)
@@ -47,7 +70,7 @@ if __name__ == '__main__':
         Img = cv2.imread(os.path.join(path, ImgName))
 
         start = time.time()
-        # Use cuda to do fa recognition, but i am not install dlib-cuda yet.
+        # Use cuda to do face recognition, but i am not install dlib-cuda yet.
         local = face_recognition.face_locations(Img, model='cnn') # => use cuda for face_recognition
         # A list of tuples of found face locations in css (top, right, bottom, left) order
         # local = face_recognition.face_locations(Img)
