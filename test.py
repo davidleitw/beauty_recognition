@@ -7,15 +7,27 @@ import os
 SaveImg_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/diamond_test'
 
 def Read_Img_File(Imgpath=None):
+    '''
+    :param Imgpath: img path
+    :return: ImgName -> xxx.jpg, ImgNumber(index) -> int(xxx)
+    '''
     Imgname = Imgpath
     ImgNumber = Imgpath.split('.')
     ImgNumber = int(ImgNumber[0])
     # name and idx(number)
     return Imgname, ImgNumber
 
+def CompareFace(knownimg=None, unknownimg=None):
+    known_encoding = face_recognition.face_encodings(knownimg)
+    unknown_encoding = face_recognition.face_encodings(unknownimg)
+    # print(len(known_encoding), len(unknown_encoding))
+    results = face_recognition.compare_faces(known_encoding, unknown_encoding)
+    flag = 1 if results[0] == True else 0
+    return flag
+
 def Drawface(Img=None, args=(0, 0, 0, 0), ImgName=None):
     # print(len(args))
-    lockingface(Img, ImgName, args, mode='diamond', save=True, save_path=SaveImg_path)
+    lockingface(Img, ImgName, args, mode='diamond', save=False, save_path=SaveImg_path)
 
 def lockingface(Img=None, ImgName=None, point=(0, 0, 0, 0), mode='point', save=False, save_path=None):
     '''
@@ -66,12 +78,12 @@ if __name__ == '__main__':
     for count,idx in enumerate(dataset):
         ImgName, ImgNumber = Read_Img_File(idx)
         # Img = face_recognition.load_image_file(os.path.join(path, ImgName))
-        print(ImgName)
+        print('{} {}'.format(ImgName, ImgNumber))
         Img = cv2.imread(os.path.join(path, ImgName))
 
         start = time.time()
         # Use cuda to do face recognition, but i am not install dlib-cuda yet.
-        local = face_recognition.face_locations(Img, model='cnn') # => use cuda for face_recognition
+        local = face_recognition.face_locations(Img) # => use cuda for face_recognition
         # A list of tuples of found face locations in css (top, right, bottom, left) order
         # local = face_recognition.face_locations(Img)
         end = time.time()
