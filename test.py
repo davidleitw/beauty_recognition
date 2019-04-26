@@ -22,7 +22,7 @@ def CompareFace(knownimg=None, unknownimg=None):
     unknown_encoding = face_recognition.face_encodings(unknownimg)
     # print(len(known_encoding), len(unknown_encoding))
     results = face_recognition.compare_faces(known_encoding, unknown_encoding)
-    flag = 1 if results[0] == True else 0
+    flag = 1 if (results[0] == True) else 0
     return flag
 
 def Drawface(Img=None, args=(0, 0, 0, 0), ImgName=None):
