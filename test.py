@@ -38,7 +38,7 @@ def lockingface(Img=None, ImgName=None, point=(0, 0, 0, 0), mode='point', save=F
                 if save:
                     cv2.imwrite(os.path.join(save_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
             except:
-                print('Error, maybe cv2 is not working, can draw the point on the picture')
+                print('Error, maybe cv2 is not working, can not draw the point on the picture')
         elif mode == 'diamond':
             try:
                 cv2.line(Img, (int((right + left)/2), top-60), (right+40, int((top + bottom)/2)), color=(255, 255, 0), thickness=5)
@@ -48,7 +48,7 @@ def lockingface(Img=None, ImgName=None, point=(0, 0, 0, 0), mode='point', save=F
                 if save:
                     cv2.imwrite(os.path.join(save_path, ImgName), Img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
             except:
-                print('Error, maybe cv2 is not working')
+                print('Error, maybe cv2 is not working, can not draw the diamond on the picture')
     else:
         print('len(point) == 1, that mean there is not face in our picture')
 

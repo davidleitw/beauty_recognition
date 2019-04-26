@@ -1,1 +1,9 @@
- using fave_recognition.face_locations(Img, model='cnn') ac% = 0.8average time for each picture = 99.40344796180725 using fave_recognition.face_locations(Img, model='cnn') ac% = 0.8average time for each picture = 99.42257435321808
+using fave_recognition.face_locations(Img, model='cnn') 
+ac% = 0.8
+average time for each picture = 99.40344796180725 
+
+
+
+using fave_recognition.face_locations(Img, model='cnn') 
+ac% = 0.8
+average time for each picture = 99.42257435321808
