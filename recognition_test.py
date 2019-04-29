@@ -1,37 +1,44 @@
 import face_recognition
 import numpy
 import time
+from PIL import Image
 import cv2
 import os
 import test
 
 if __name__ == '__main__':
     path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/'
+    
+
     dataset = os.listdir(path)
-    accuracy = []
-    avgtime = 0
-    count = 0
-    for idx, picture in enumerate(dataset):
-        ImgName, ImgNumber = test.Read_Img_File(picture)
-        Img = face_recognition.load_image_file(os.path.join(path, ImgName))
-        # img_face_encoding = face_recognition.face_encodings(Img)
-        success = 0
-        for img in dataset:  # Compare each image in dataset
-            unImgName, unImgNumber = test.Read_Img_File(img)
-            unknown_img = face_recognition.load_image_file(os.path.join(path, unImgName))
-            # unknown_face_encoding = face_recognition.face_encodings(unknown_img)[0]
+    Img = []
+    Idx = []
+    for num, idx in enumerate(dataset):
+        img = face_recognition.load_image_file(os.path.join(path, idx))
+        local = face_recognition.face_locations(img, model='cnn')
+        Img.append(img)
+        if len(local) != 0:
+            Idx.append(num)
 
-            start = time.time()
-            flag = test.CompareFace(Img, unknown_img)
-            if flag == 1:
-                success = success + 1
-            end = time.time()
-            avgtime = avgtime + (end - start)
-            count = count + 1
-        # 紀錄每輪比較之後辨識的成功機率
-        accuracy.append(success)
+    # print(Img[0])
+    print(Img[0].shape)
+    print(Img[1].shape)
+    
+    try:
+        img1 = face_recognition.face_encodings(Img[1])[0]
+        img2 = face_recognition.face_encodings(Img[2])[0]
+        unknown_img3 = face_recognition.face_encodings(Img[3])[0]
+    except IndexError:
+        print('check the file')
 
-    for idx, record in enumerate(accuracy):
-        print('In turn {}, ac% = {}'.format(idx, (record/len(dataset))))
-    print('avgtime = {}'.format(avgtime/900))
-    # print('count = {}'.format(count))
+    known_faces = [img1, img2]
+
+    results = face_recognition.compare_faces(known_faces, unknown_img3)
+
+    # print('results[0] = {}'.format(results[0]))
+    # print('results[1] = {}'.format(results[1]))
+
+
+
+
+

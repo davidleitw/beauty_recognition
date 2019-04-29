@@ -4,6 +4,7 @@ import time
 import cv2
 import face_recognition
 import os
+import dlib
 SaveImg_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/diamond_test'
 
 def Read_Img_File(Imgpath=None):
@@ -16,14 +17,6 @@ def Read_Img_File(Imgpath=None):
     ImgNumber = int(ImgNumber[0])
     # name and idx(number)
     return Imgname, ImgNumber
-
-def CompareFace(knownimg=None, unknownimg=None):
-    known_encoding = face_recognition.face_encodings(knownimg)
-    unknown_encoding = face_recognition.face_encodings(unknownimg)
-    # print(len(known_encoding), len(unknown_encoding))
-    results = face_recognition.compare_faces(known_encoding, unknown_encoding)
-    flag = 1 if (results[0] == True) else 0
-    return flag
 
 def Drawface(Img=None, args=(0, 0, 0, 0), ImgName=None):
     # print(len(args))
@@ -65,8 +58,9 @@ def lockingface(Img=None, ImgName=None, point=(0, 0, 0, 0), mode='point', save=F
         print('len(point) == 1, that mean there is not face in our picture')
 
 if __name__ == '__main__':
-    # print(dlib.DLIB_USE_CUDA)
-    # print(dlib.cuda.get_num_devices())
+    print(dlib.DLIB_USE_CUDA)
+    print(dlib.cuda.get_num_devices())
+
     path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/'
     fp = open('Record.txt', 'a')
     dataset = os.listdir(path)
@@ -83,7 +77,7 @@ if __name__ == '__main__':
 
         start = time.time()
         # Use cuda to do face recognition, but i am not install dlib-cuda yet.
-        local = face_recognition.face_locations(Img) # => use cuda for face_recognition
+        local = face_recognition.face_locations(Img, model='cnn') # => use cuda for face_recognition
         # A list of tuples of found face locations in css (top, right, bottom, left) order
         # local = face_recognition.face_locations(Img)
         end = time.time()
