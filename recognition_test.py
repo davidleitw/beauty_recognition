@@ -1,7 +1,5 @@
 import face_recognition
-import numpy
 import time
-from PIL import Image
 import cv2
 import os
 import test
@@ -26,7 +24,6 @@ if __name__ == '__main__':
     try:
         known_img_encoding = face_recognition.face_encodings(known_img)
         unknown_img_encoding = face_recognition.face_encodings(unknown_img)
-
     except:
         print('check the file')
 
