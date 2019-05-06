@@ -21,7 +21,7 @@ class net(nn.Module):
         print('In the test function')
         print(type(Img), Img.shape)
         output = self.conv1(Img)
-        print(output.shape)
+        print('output shape = ', output.shape)
         return Img
 
 if __name__ == '__main__':
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     Img = Img.view(3, 1350, 1080)
     print(Img.shape)
     Img = torch.unsqueeze(Img, 0)
-    Img = Img.expand(16, 3, 1350, 1080)
+    Img = Img.expand(1, 3, 1350, 1080)
     # Img = torch.reshape(Img, [16, 3, 1350, 1080])
     print(Img.shape)
     # newimg = torch.ones(16, 3, 1350, 1080)

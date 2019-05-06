@@ -1,0 +1,6 @@
+1. 讀進來的img 要存成tensor, 然後資料型態要是float()
+ex. Img = torch.from_numpy(cv2.imread(os.path.join(Imgpath, Img_ls[2]))).float()
+
+2. shape的規則要想辦法搞懂 input tensor shape = {[batch_size], [input_channels], [pixels], [pixels]}
+
+
