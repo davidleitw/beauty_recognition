@@ -1,31 +1,35 @@
 import torch
-import numpy as np
 import torch.nn as nn
-import torch.nn.functional as F
-from collections import OrderedDict
+import cv2
+import numpy as np
 
-class P_Net(nn.Module):
+class net(nn.Module):
     def __init__(self):
-        super(P_Net, self).__init__()
+        super(net, self).__init__()
         self.features = nn.Sequential(
-            OrderedDict([('conv1', nn.Conv2d(3, 10, 3, 1)),
-                         ('prelu1', nn.PReLU(10)),
-                         ('pool1', nn.MaxPool2d(2, 2, ceil_mode=True)),
+            # Conv1
+            nn.Conv2d(in_channels=3, out_channels=16,
+                      kernel_size=5, stride=1, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=3, stride=2),
 
-                         ('conv2', nn.Conv2d(10, 16, 3, 1)),
-                         ('prelu2', nn.PReLU(16)),
+            # Conv2
+            nn.Conv2d(in_channels=16, out_channels=32,
+                      kernel_size=4, stride=1, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=3, stride=2),
 
-                         ('conv3', nn.Conv2d(16, 32, 3, 1)),
-                         ('prelu3', nn.PReLU(32))
-                         ])
-            )
-        self.conv4 = nn.Conv2d(32, 2, 1, 1)
-        self.conv5 = nn.Conv2d(32, 4, 1, 1)
+            # Conv3
+            nn.Conv2d(in_channels=32, out_channels=32,
+                      kernel_size=3, stride=1, padding=1),
+            nn.ReLU(),
+            nn.MaxPool2d(kernel_size=3, stride=2)
+        )
+        print(self.features)
+    def forward(self, Img):
+        x = self.features(Img)
+        return x
 
-    def forward(self, x):
-        x = self.features(x)
-        x = self.conv4(x)
-        x = self.conv5(x)
-        results = F.softmax(x)
-        return x, results
-
+if __name__ == '__main__':
+    Net = net()
+    Imgpath = r''
