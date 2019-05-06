@@ -3,4 +3,11 @@ ex. Img = torch.from_numpy(cv2.imread(os.path.join(Imgpath, Img_ls[2]))).float()
 
 2. shape的規則要想辦法搞懂 input tensor shape = {[batch_size], [input_channels], [pixels], [pixels]}
 
+3. tensor.expand([shape]) 可以無限制的擴張或縮減tensor
+ex. tensor = (1, 3, 5, 5) 
+    tensor = tensor.expand(3, 3, 5, 5)
+    print(tensor.shape) -> (3, 3, 5, 5)
+
+4. 搞清楚經過每次cnn, maxpool之後 其shape的變化(思考出一個公式可以使其成立)
+   
 

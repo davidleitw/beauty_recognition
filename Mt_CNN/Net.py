@@ -11,7 +11,13 @@ def Conv3x3(in_planes, out_planes, stride=1):
 class net(nn.Module):
     def __init__(self):
         super(net, self).__init__()
-        self.conv1 = nn.Conv2d(in_channels=3, out_channels=3, kernel_size=5, stride=1, padding=1)
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=5, stride=1, padding=1)
+        self.relu1 = nn.ReLU()
+        self.mx1 = nn.MaxPool2d((2, 2), stride=1)
+        self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=4, stride=1, padding=1)
+        self.relu2 = nn.ReLU()
+        self.mx2 = nn.MaxPool2d((2, 2), stride=1)
+        self.conv2
         # print(self.features)
     def forward(self, Img):
         pass
@@ -20,8 +26,19 @@ class net(nn.Module):
         # Img = torch.unsqueeze(Img, 1)
         print('In the test function')
         print(type(Img), Img.shape)
+        print('After conv: ',self.conv1)
         output = self.conv1(Img)
+        output = self.relu1(output)
         print('output shape = ', output.shape)
+        output = self.mx1(output)
+        print('output shape = ', output.shape)
+
+        output = self.conv2(output)
+        output = self.relu2(output)
+        print('output shape = ', output.shape)
+        output = self.mx2(output)
+        print('output shape = ', output.shape)
+
         return Img
 
 if __name__ == '__main__':
