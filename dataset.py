@@ -12,13 +12,13 @@ class traindata():
         self.Dataset = []
         self.Labelset = []
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx=None):
         return self.root_child[idx]
 
     def show_data(self):
         assert self.root_path != None, "root path can't be none!"
         print('root path = {}'.format(self.root_path))
-        print('Include {} classes train data:\n{}'.format(len(self.root_child), self.root_child))
+        print('Include {} classes train data: {}'.format(len(self.root_child), self.root_child))
 
     def set_rootpath(self, train_root):
         self.root_path = train_root
@@ -27,37 +27,47 @@ class traindata():
 
     def loading_data(self):
         assert self.root_path != None, "root path can't be none!"
-       
+        imgcount = 0 
         for Class in self.root_child:
             print(Class)
             ClassesName = os.path.join(self.root_path, Class)
             ClassesImg = os.listdir(ClassesName)
             data = []
+            assert len(ClassesImg)!= 0, "{} don't have img over there".format(os.path.join(ClassesName))
             for idx, img in enumerate(ClassesImg):
                 Img = cv2.imread(os.path.join(ClassesName, img))
                 data.append(Img)
+                imgcount = imgcount + 1
             #print(len(data))
             self.Dataset.append(data)
             #Dataset.append(data)
-        print(len(self.Dataset[0]))
+        print('loading data finish, total classes {}, total img number {}'.format(imgcount, len(self.root_child)))
     
     def loading_label(self):
         assert self.root_path != None, "root path can't be none"
-
+        labelcount = 0
         for Class in self.root_child:
             label = []
             for idx, img in enumerate(os.listdir(os.path.join(self.root_path, Class))):
                 label.append(Class)
+                labelcount = labelcount + 1 
             self.Labelset.append(label)
+        print('loading label finish, total label with img {}'.format(labelcount))
 
+    def get_img(self, classes_name, idx):
+        for findptr in self.root_child:
+            print(findptr)
+   
+    
 
 if __name__ == '__main__':
     dataset = traindata(traindata_path)
     dataset.show_data()
     dataset.loading_data()
     dataset.loading_label()
-    print(dataset.Dataset)
-    print(dataset.Labelset)
+    
+    #print(dataset.Dataset)
+    #print(dataset.Labelset)
 
 
 

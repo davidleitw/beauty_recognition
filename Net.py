@@ -3,7 +3,8 @@ import torch.nn as nn
 import cv2
 import os
 import numpy as np
-traindata_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/real__yami/'
+from dataset import traindata
+traindata_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/'
 # https://blog.csdn.net/hbu_pig/article/details/81454503
 
 def Conv3x3(in_planes, out_planes, stride=1):
@@ -18,12 +19,15 @@ def ImgtoTensor(Img):
 class net(nn.Module):
     def __init__(self):
         super(net, self).__init__()
+        
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=5, stride=1, padding=1)
         self.relu1 = nn.ReLU()
         self.mx1 = nn.MaxPool2d((2, 2), stride=1)
+        
         self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=4, stride=1, padding=1)
         self.relu2 = nn.ReLU()
         self.mx2 = nn.MaxPool2d((2, 2), stride=1)
+        
         self.conv3 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1, padding=1)
         self.relu3 = nn.ReLU()
         self.mx3 = nn.MaxPool2d((2, 2), stride=1)
@@ -72,14 +76,22 @@ class net(nn.Module):
 
 if __name__ == '__main__':
     Net = net()
+    Dataset = traindata(traindata_path)
+    Dataset.show_data()
+    Dataset.loading_data()
+    Dataset.loading_label()
 
-    Img_ls = os.listdir(traindata_path)
+    #print(Dataset.Dataset)
+    #print(Dataset.Labelset)
 
-    Img = torch.from_numpy(cv2.imread(os.path.join(traindata_path, Img_ls[2]))).float()
-    Img = ImgtoTensor(Img)
-    print(Img.shape)
+   
+   # Img_ls = os.listdir(traindata_path)
+
+   # Img = torch.from_numpy(cv2.imread(os.path.join(traindata_path, Img_ls[2]))).float()
+   # Img = ImgtoTensor(Img)
+   # print(Img.shape)
     # Net.testdata(Img)
-    output = Net(Img)
-    print(output.shape)
+   # output = Net(Img)
+   # print(output.shape)
 
     # output = Net(Imgtensor)
