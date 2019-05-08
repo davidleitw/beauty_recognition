@@ -2,9 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73fc8014-bb2e-4c70-a916-74c6e0788397" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mt_CNN/Net.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mt_CNN/Net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得" beforeDir="false" afterPath="$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0016.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0018.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0019.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0020.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0022.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0023.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0024.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0025.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0026.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0027.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0028.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0029.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/moe_five/0030.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0001.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0002.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0003.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0004.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0005.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0006.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0007.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0008.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0009.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0010.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0012.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0013.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0014.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0016.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0018.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0019.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0020.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0021.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0022.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0023.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0024.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0025.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0026.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0027.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0028.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0029.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testdata/real__yami/0030.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +75,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
+            <state relative-caret-position="-430">
               <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -38,31 +96,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Mt_CNN/Net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="-62">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
+                <element signature="e#1040#1944#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/modules/pooling.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2291">
-              <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="580">
               <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
             </state>
           </provider>
@@ -86,8 +136,8 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/testdata/HashTable.py" />
         <option value="$PROJECT_DIR$/recognition_test.py" />
-        <option value="$PROJECT_DIR$/Mt_CNN/Net.py" />
         <option value="$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得" />
+        <option value="$PROJECT_DIR$/Mt_CNN/Net.py" />
       </list>
     </option>
   </component>
@@ -260,14 +310,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.34117004" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1545946" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19567567" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -329,16 +378,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/recognition_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
@@ -349,27 +388,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-430">
+          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/torch/nn/modules/pooling.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2291">
+        <state relative-caret-position="672">
           <caret line="84" column="6" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Mt_CNN/Net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="-62">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#1040#1944#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mt_CNN/pytorch_cnn 學習心得">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
         </state>
       </provider>
     </entry>
