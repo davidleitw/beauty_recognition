@@ -10,6 +10,7 @@ class traindata():
         self.root_path = train_root
         self.root_child = os.listdir(self.root_path)
         self.Dataset = []
+        self.Labelset = []
 
     def __getitem__(self, idx):
         return self.root_child[idx]
@@ -38,12 +39,26 @@ class traindata():
             #print(len(data))
             self.Dataset.append(data)
             #Dataset.append(data)
-        print(type(self.Dataset))
-        print(len(self.Dataset))
-        print(type(self.Dataset[0]))
+        print(len(self.Dataset[0]))
+    
+    def loading_label(self):
+        assert self.root_path != None, "root path can't be none"
+
+        for Class in self.root_child:
+            label = []
+            for idx, img in enumerate(os.listdir(os.path.join(self.root_path, Class))):
+                label.append(Class)
+            self.Labelset.append(label)
 
 
 if __name__ == '__main__':
     dataset = traindata(traindata_path)
     dataset.show_data()
-    dataset.loading_data() 
+    dataset.loading_data()
+    dataset.loading_label()
+    print(dataset.Dataset)
+    print(dataset.Labelset)
+
+
+
+
