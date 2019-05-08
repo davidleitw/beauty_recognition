@@ -11,3 +11,23 @@ ex. tensor = (1, 3, 5, 5)
 4. 搞清楚經過每次cnn, maxpool之後 其shape的變化(思考出一個公式可以使其成立)
    
 
+5.
+    test = torch.ones(1, 3, 5, 5)
+        for idx in range(3):
+            for x in range(5):
+                for y in range(5):
+                    test[0, idx, x, y] = (x+1) * (y+1)
+
+    # print(test)
+    print('test = ', test)
+    print(test.shape)
+    conv1 = nn.Conv2d(in_channels=3, out_channels=3, kernel_size=3,  stride=1, padding=0)
+    print(conv1)
+    test = conv1(test)
+    print('After conv1, test shape = ', test.shape)
+    print('test = ', test)
+    mx1 = nn.MaxPool2d((2, 2), stride=1)
+    print(mx1)
+    test = mx1(test)
+    print('After maxpool2d_1, test shape = ', test.shape)
+    print('test = ', test)

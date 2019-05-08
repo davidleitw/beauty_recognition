@@ -17,7 +17,10 @@ class net(nn.Module):
         self.conv2 = nn.Conv2d(in_channels=16, out_channels=32, kernel_size=4, stride=1, padding=1)
         self.relu2 = nn.ReLU()
         self.mx2 = nn.MaxPool2d((2, 2), stride=1)
-        self.conv2
+        self.conv3 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1, padding=1)
+        self.relu3 = nn.ReLU()
+        self.mx3 = nn.MaxPool2d((2, 2), stride=1)
+    
         # print(self.features)
     def forward(self, Img):
         pass
@@ -29,16 +32,22 @@ class net(nn.Module):
         print('After conv: ',self.conv1)
         output = self.conv1(Img)
         output = self.relu1(output)
-        print('output shape = ', output.shape)
+        print('After conv1, output shape = ', output.shape)
         output = self.mx1(output)
-        print('output shape = ', output.shape)
+        print('After maxpooling1, output shape = ', output.shape)
 
         output = self.conv2(output)
         output = self.relu2(output)
-        print('output shape = ', output.shape)
+        print('After conv2, output shape = ', output.shape)
         output = self.mx2(output)
-        print('output shape = ', output.shape)
-
+        print('After maxpooling2, output shape = ', output.shape)
+       
+        output = self.conv3(output)
+        output = self.relu3(output)
+        print('After conv3, output shape = ', output.shape)
+        output = self.mx3(output)
+        print('After mx3, output shape = ', output.shape)
+    
         return Img
 
 if __name__ == '__main__':
@@ -46,16 +55,17 @@ if __name__ == '__main__':
     Imgpath = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/real__yami/'
     Img_ls = os.listdir(Imgpath)
 
-    Img = torch.from_numpy(cv2.imread(os.path.join(Imgpath, Img_ls[2]))).float()
-    print(Img.shape)
-    Img = Img.view(3, 1350, 1080)
-    print(Img.shape)
-    Img = torch.unsqueeze(Img, 0)
-    Img = Img.expand(1, 3, 1350, 1080)
+   # Img = torch.from_numpy(cv2.imread(os.path.join(Imgpath, Img_ls[2]))).float()
+   # print(Img.shape)
+   # Img = Img.view(3, 1350, 1080)
+   # print(Img.shape)
+   # Img = torch.unsqueeze(Img, 0)
+   # Img = Img.expand(1, 3, 1350, 1080)
     # Img = torch.reshape(Img, [16, 3, 1350, 1080])
-    print(Img.shape)
+   # print(Img.shape)
     # newimg = torch.ones(16, 3, 1350, 1080)
     # Net.testdata(Img)
-    Net.testdata(Img)
+   # Net.testdata(Img)
+
 
     # output = Net(Imgtensor)
