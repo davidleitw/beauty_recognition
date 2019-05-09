@@ -62,7 +62,8 @@ class traindata():
                 for i, img in enumerate(table):
                     if i+1 == idx:
                         return cv2.imread(os.path.join(child_path, img))  
-        
+    def get_dataset(self):
+        return self.Dataset
 
 if __name__ == '__main__':
     dataset = traindata(traindata_path)
@@ -70,6 +71,7 @@ if __name__ == '__main__':
     dataset.loading_data()
     dataset.loading_label()
     Img = dataset.get_img(classes_name="moe_five", idx=2)
+    
     
 
 

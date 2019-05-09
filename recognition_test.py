@@ -11,23 +11,20 @@ def show(Img):
     return Img
 
 if __name__ == '__main__':
-    path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/'
+    path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/moe_five/'
     dataset = os.listdir(path)
     print(dataset)
 
     known_img = cv2.imread(os.path.join(path, dataset[1]))
     unknown_img = cv2.imread(os.path.join(path, dataset[2]))
+    print(type(known_img), type(unknown_img))
 
-    known_img = cv2.resize(known_img, (1920, 768))
-    unknown_img = cv2.resize(unknown_img, (1920, 768))
+    known_img_encoding = face_recognition.face_encodings(known_img)[0]
+        # print(known_img_encoding)
+    unknown_img_encoding = face_recognition.face_encodings(unknown_img)[0]
 
-    try:
-        known_img_encoding = face_recognition.face_encodings(known_img)
-        unknown_img_encoding = face_recognition.face_encodings(unknown_img)
-    except:
-        print('check the file')
+    results = face_recognition.face_distance(known_img_encoding, unknown_img_encoding)
 
-    results = face_recognition.compare_faces(known_img_encoding, unknown_img_encoding)
     print(results)
 
 

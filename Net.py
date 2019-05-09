@@ -46,7 +46,7 @@ class beauty_net(nn.Module):
         self.l1 = nn.Linear(4967552, 400)
         self.l2 = nn.Linear(400, 1600)
         self.l3 = nn.Linear(1600, 3200)
-        self.l4 = nn.Linear(3200, 6400)
+        
         # print(self.features)
     def forward(self, x):
         # Conv1
@@ -64,7 +64,6 @@ class beauty_net(nn.Module):
         
         x = self.Flatten(x)
         print(x.shape) 
-        
         x = self.l1(x)
         x = self.relu1(x)
         print(x.shape)
@@ -76,7 +75,7 @@ class beauty_net(nn.Module):
         print(x.shape)
         x = F.softmax(x)
         print(x.shape)
-        
+         
         return x
     def testdata(self, Img):
         # Img = Img.view(3, 1350, 1080)
@@ -112,7 +111,7 @@ if __name__ == '__main__':
     Dataset.loading_label()
     testimg = torch.ones(1, 3, 400, 400)
     output = Net(testimg)
-
+    
     #print(Dataset.Dataset)
     #print(Dataset.Labelset)
 
