@@ -4,7 +4,6 @@ import cv2
 import numpy as np
 traindata_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/'
 
-
 class traindata():
     def __init__(self, train_root=None):
         self.root_path = train_root
@@ -54,21 +53,24 @@ class traindata():
             self.Labelset.append(label)
         print('loading label finish, total label with img {}'.format(labelcount))
 
-    def get_img(self, classes_name, idx):
+    def get_img(self, classes_name=None, idx=None):
         for findptr in self.root_child:
-            print(findptr)
-   
-    
+            if findptr == classes_name:
+                child_path = os.path.join(self.root_path, findptr)
+                table = os.listdir(os.path.join(child_path))
+                assert len(table)!=0, "len of table is zero, mean it did't exist picture in this table"
+                for i, img in enumerate(table):
+                    if i+1 == idx:
+                        return cv2.imread(os.path.join(child_path, img))  
+        
 
 if __name__ == '__main__':
     dataset = traindata(traindata_path)
     dataset.show_data()
     dataset.loading_data()
     dataset.loading_label()
+    Img = dataset.get_img(classes_name="moe_five", idx=2)
     
-    #print(dataset.Dataset)
-    #print(dataset.Labelset)
-
 
 
 
