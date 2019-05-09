@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import cv2
 import os
 import numpy as np
@@ -16,9 +17,18 @@ def ImgtoTensor(Img):
     Img = torch.unsqueeze(Img, 0)
     return Img
 
-class net(nn.Module):
+class Flatten(nn.Module):
     def __init__(self):
-        super(net, self).__init__()
+        super(Flatten, self).__init__()
+        
+    def forward(self, x):
+        x = x.transpose(3, 2).contiguous()
+        x = x.view(x.shape[0], -1)
+        return x 
+
+class beauty_net(nn.Module):
+    def __init__(self):
+        super(beauty_net, self).__init__()
         
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=16, kernel_size=5, stride=1, padding=1)
         self.relu1 = nn.ReLU()
@@ -31,7 +41,12 @@ class net(nn.Module):
         self.conv3 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1, padding=1)
         self.relu3 = nn.ReLU()
         self.mx3 = nn.MaxPool2d((2, 2), stride=1)
-    
+        
+        self.Flatten = Flatten()
+        self.l1 = nn.Linear(4967552, 400)
+        self.l2 = nn.Linear(400, 1600)
+        self.l3 = nn.Linear(1600, 3200)
+        self.l4 = nn.Linear(3200, 6400)
         # print(self.features)
     def forward(self, x):
         # Conv1
@@ -46,7 +61,22 @@ class net(nn.Module):
         x = self.conv3(x)
         x = self.relu3(x)
         x = self.mx3(x)
-
+        
+        x = self.Flatten(x)
+        print(x.shape) 
+        
+        x = self.l1(x)
+        x = self.relu1(x)
+        print(x.shape)
+        x = self.l2(x)
+        x = self.relu1(x)
+        print(x.shape)
+        x = self.l3(x)
+        x = self.relu1(x)
+        print(x.shape)
+        x = F.softmax(x)
+        print(x.shape)
+        
         return x
     def testdata(self, Img):
         # Img = Img.view(3, 1350, 1080)
@@ -75,11 +105,13 @@ class net(nn.Module):
         return Img
 
 if __name__ == '__main__':
-    Net = net()
+    Net = beauty_net()
     Dataset = traindata(traindata_path)
     Dataset.show_data()
     Dataset.loading_data()
     Dataset.loading_label()
+    testimg = torch.ones(1, 3, 400, 400)
+    output = Net(testimg)
 
     #print(Dataset.Dataset)
     #print(Dataset.Labelset)
@@ -94,4 +126,4 @@ if __name__ == '__main__':
    # output = Net(Img)
    # print(output.shape)
 
-    # output = Net(Imgtensor)
+    
