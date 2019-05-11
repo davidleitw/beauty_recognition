@@ -2,7 +2,7 @@ import os
 import torchvision
 import cv2
 import numpy as np
-traindata_path = r'/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/'
+traindata_path = r'/home/davidlei/temp/beauty_recognition/train/'
 
 class traindata():
     def __init__(self, train_root=None):
@@ -29,6 +29,7 @@ class traindata():
         print('Include {} classes train data: {}'.format(len(self.root_child), self.root_child))
 
     def set_rootpath(self, train_root):
+        assert os.path.isdir(train_root)
         self.root_path = train_root
         self.root_child = os.listdir(self.root_path)
         self.Dataset = []
@@ -80,8 +81,9 @@ if __name__ == '__main__':
     dataset.loading_data()
     dataset.loading_label()
     Img = dataset.get_img(classes_name="moe_five", idx=2)
-    
-    
+    name = dataset.get_childname()
+    print(type(name))
+    print(name)
 
 
 
