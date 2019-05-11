@@ -1,5 +1,5 @@
 import os
-import torchvision
+import face_recognition
 import cv2
 import numpy as np
 traindata_path = r'/home/davidlei/temp/beauty_recognition/train/'
@@ -8,6 +8,8 @@ class traindata():
     def __init__(self, train_root=None):
         self.root_path = train_root
         self.root_child = os.listdir(self.root_path)
+        #self.root_child = [{idx, child} for idx, child in enumerate(self.root_child)]
+        
         self.Dataset = []
         self.Labelset = []
 
@@ -44,7 +46,8 @@ class traindata():
             data = []
             assert len(ClassesImg)!= 0, "{} don't have img over there".format(os.path.join(ClassesName))
             for idx, img in enumerate(ClassesImg):
-                Img = cv2.imread(os.path.join(ClassesName, img))
+                #Img = cv2.imread(os.path.join(ClassesName, img))
+                Img = face_recognition.load_image_file(os.path.join(ClassesName, img))
                 data.append(Img)
                 imgcount = imgcount + 1
             #print(len(data))
@@ -72,6 +75,7 @@ class traindata():
                 for i, img in enumerate(table):
                     if i+1 == idx:
                         return cv2.imread(os.path.join(child_path, img))  
+    
     def get_dataset(self):
         return self.Dataset
 
@@ -81,9 +85,9 @@ if __name__ == '__main__':
     dataset.loading_data()
     dataset.loading_label()
     Img = dataset.get_img(classes_name="moe_five", idx=2)
-    name = dataset.get_childname()
-    print(type(name))
-    print(name)
 
-
+    print('dataset child = {}'.format(dataset.root_child))
+    test = dataset.root_child
+    test_list = [{idx, child} for idx, child in enumerate(test)]
+            
 
