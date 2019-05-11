@@ -13,6 +13,15 @@ class traindata():
 
     def __getitem__(self, idx=None):
         return self.root_child[idx]
+    
+    def get_childnum(self):
+        return len(self.root_child)
+    
+    def get_childname(self):
+        return list(self.root_child)
+
+    def get_rootpath(self):
+        return self.root_path
 
     def show_data(self):
         assert self.root_path != None, "root path can't be none!"
