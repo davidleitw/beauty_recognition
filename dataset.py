@@ -8,8 +8,8 @@ class traindata():
     def __init__(self, train_root=None):
         self.root_path = train_root
         #self.root_child = os.listdir(self.root_path)
-        self.root_child = [{idx, child} for idx, child in enumerate(os.listdir(self.root_path))]
-        
+        print('Classes Name = {}'.format(os.listdir(self.root_path)))
+        self.root_child = [(idx, child) for idx, child in enumerate(os.listdir(self.root_path))] 
         self.Dataset = []
         self.Labelset = []
 
@@ -21,6 +21,9 @@ class traindata():
     
     def get_childname(self):
         return list(self.root_child)
+
+    def get_root_child(self):
+        return self.root_child
 
     def get_rootpath(self):
         return self.root_path
@@ -40,8 +43,11 @@ class traindata():
         assert self.root_path != None, "root path can't be none!"
         imgcount = 0 
         for _, Class in self.root_child:
-            print(Class)
+            #print(Class)
             ClassesName = os.path.join(self.root_path, Class)
+            if os.path.isdir(ClassesName) is False:
+                continue
+           
             ClassesImg = os.listdir(ClassesName)
             data = []
             assert len(ClassesImg)!= 0, "{} don't have img over there".format(os.path.join(ClassesName))
@@ -53,7 +59,7 @@ class traindata():
             #print(len(data))
             self.Dataset.append(data)
             #Dataset.append(data)
-        print('loading data finish, total classes {}, total img number {}'.format(imgcount, len(self.root_child)))
+        print('loading data  finish, total classes {}, total img number {}'.format(imgcount, len(self.root_child)))
     
     def loading_label(self):
         assert self.root_path != None, "root path can't be none"
