@@ -26,24 +26,20 @@ class Face(object):
             Imgs = os.listdir(os.path.join(data_path, value))
             Imgs.sort()
             ac = 0
-            for i in range(10):
+            for i in range(30):
                 compare_img = face_recognition.load_image_file(os.path.join(data_path, value, Imgs[i]))
                 compare_img_encoding = self.get_face_encoding(compare_img)
+                if len(compare_img_encoding) == 0:;
+                    continue
+                
                 print(compare_img_encoding)
                 #distance = face_recognition.face_distance()   
-            
-
-        
-
-
-
-
 
 
 if __name__ == '__main__':
     Face_recognition = Face(known_data_path = data_path)
     #Face_recognition.recognition()
-    Img = face_recognition.load_image_file(os.path.join(data_path, 'moe_five', '0024.jpg'))
+    Img = face_recognition.load_image_file(os.path.join(data_path, 'moe_five', '0025.jpg'))
     print(type(Img))
     #Img_encoding = Face_recognition.get_face_encoding(Img)
     Img_encoding = face_recognition.face_encodings(Img)

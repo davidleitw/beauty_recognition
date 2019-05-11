@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print(dlib.DLIB_USE_CUDA)
     print(dlib.cuda.get_num_devices())
 
-    path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/testdata/moe_five/'
+    path = '../../temp/beauty_recognition/train/moe_five/'
     fp = open('Record.txt', 'a')
     dataset = os.listdir(path)
     print(os.getcwd())
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     avgtime = totaltime / 10
     print('ac% = {}'.format((len(dataset) - fcount)/len(dataset)))
     print('average time for each picture = {}'.format(avgtime))
-    fp.write(" using fave_recognition.face_locations(Img, model='cnn') ")
-    fp.write('ac% = {}'.format((len(dataset) - fcount)/len(dataset)))
-    fp.write('average time for each picture = {}'.format(avgtime))
+    #fp.write(" using fave_recognition.face_locations(Img, model='cnn') ")
+    #fp.write('ac% = {}'.format((len(dataset) - fcount)/len(dataset)))
+    #fp.write('average time for each picture = {}'.format(avgtime))
 
