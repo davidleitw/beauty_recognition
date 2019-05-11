@@ -7,8 +7,8 @@ traindata_path = r'/home/davidlei/temp/beauty_recognition/train/'
 class traindata():
     def __init__(self, train_root=None):
         self.root_path = train_root
-        self.root_child = os.listdir(self.root_path)
-        #self.root_child = [{idx, child} for idx, child in enumerate(self.root_child)]
+        #self.root_child = os.listdir(self.root_path)
+        self.root_child = [{idx, child} for idx, child in enumerate(os.listdir(self.root_path))]
         
         self.Dataset = []
         self.Labelset = []
@@ -39,13 +39,13 @@ class traindata():
     def loading_data(self):
         assert self.root_path != None, "root path can't be none!"
         imgcount = 0 
-        for Class in self.root_child:
+        for _, Class in self.root_child:
             print(Class)
             ClassesName = os.path.join(self.root_path, Class)
             ClassesImg = os.listdir(ClassesName)
             data = []
             assert len(ClassesImg)!= 0, "{} don't have img over there".format(os.path.join(ClassesName))
-            for idx, img in enumerate(ClassesImg):
+            for img in ClassesImg:
                 #Img = cv2.imread(os.path.join(ClassesName, img))
                 Img = face_recognition.load_image_file(os.path.join(ClassesName, img))
                 data.append(Img)
@@ -58,11 +58,11 @@ class traindata():
     def loading_label(self):
         assert self.root_path != None, "root path can't be none"
         labelcount = 0
-        for Class in self.root_child:
+        for _, Class in self.root_child:
             label = []
-            for idx, img in enumerate(os.listdir(os.path.join(self.root_path, Class))):
+            for img in os.listdir(os.path.join(self.root_path, Class)):
                 label.append(Class)
-                labelcount = labelcount + 1 
+                labelcount = labelcount + 1
             self.Labelset.append(label)
         print('loading label finish, total label with img {}'.format(labelcount))
 
@@ -78,16 +78,19 @@ class traindata():
     
     def get_dataset(self):
         return self.Dataset
+    
+    def get_labelset(self):
+        return self.Labelset
 
 if __name__ == '__main__':
     dataset = traindata(traindata_path)
     dataset.show_data()
     dataset.loading_data()
     dataset.loading_label()
-    Img = dataset.get_img(classes_name="moe_five", idx=2)
+    #Img = dataset.get_img(classes_name="moe_five", idx=2)
 
-    print('dataset child = {}'.format(dataset.root_child))
-    test = dataset.root_child
-    test_list = [{idx, child} for idx, child in enumerate(test)]
+    #print('dataset child = {}'.format(dataset.root_child))
+    #test = dataset.root_child
+    #test_list = [{idx, child} for idx, child in enumerate(test)]
             
 
