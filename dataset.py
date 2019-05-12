@@ -19,8 +19,11 @@ class traindata():
     def get_childnum(self):
         return len(self.root_child)
     
-    def get_childname(self):
-        return list(self.root_child)
+    def get_childname(self, idx=None):
+        if idx is None:
+            return list(self.root_child)
+        else :
+            return self.root_child[idx]
 
     def get_root_child(self):
         return self.root_child
