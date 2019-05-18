@@ -11,7 +11,7 @@ def show(Img):
     return Img
 
 if __name__ == '__main__':
-    path = '/media/davidlei/Transcend/Beauty_recognition/beauty_recognition/train/moe_five/'
+    path = r'../../temp/beauty_recognition/train/moe_five/'
     dataset = os.listdir(path)
     print(dataset)
 
