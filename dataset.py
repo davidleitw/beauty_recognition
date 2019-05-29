@@ -45,7 +45,7 @@ class traindata():
     def loading_data(self):
         assert self.root_path != None, "root path can't be none!"
         imgcount = 0 
-        for _, Class in self.root_child:
+        for idx, Class in self.root_child:
             #print(Class)
             ClassesName = os.path.join(self.root_path, Class)
             if os.path.isdir(ClassesName) is False:
@@ -67,7 +67,7 @@ class traindata():
     def loading_label(self):
         assert self.root_path != None, "root path can't be none"
         labelcount = 0
-        for _, Class in self.root_child:
+        for idx, Class in self.root_child:
             label = []
             for img in os.listdir(os.path.join(self.root_path, Class)):
                 label.append(Class)
