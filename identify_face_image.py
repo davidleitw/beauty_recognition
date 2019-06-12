@@ -57,9 +57,9 @@ with tf.Graph().as_default():
         prevTime = 0
         # ret, frame = video_capture.read()
         frame = cv2.imread(img_path, 0)
-
+        print('frame shape = {}'.format(frame.shape))
         frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)    #resize frame (optional)
-
+        
         curTime = time.time()+1    # calc fps
         timeF = frame_interval
         
@@ -72,7 +72,7 @@ with tf.Graph().as_default():
             bounding_boxes, _ = detect_face.detect_face(frame, minsize, pnet, rnet, onet, threshold, factor)
             nrof_faces = bounding_boxes.shape[0]
             print('Face Detected: %d' % nrof_faces)
-
+            print('nrof_faces = {}'.format(nrof_faces))
             if nrof_faces > 0:
                 det = bounding_boxes[:, 0:4]
                 img_size = np.asarray(frame.shape)[0:2]
