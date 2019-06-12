@@ -1,0 +1,4 @@
+#忽略 train_img 文件
+train_img/
+#忽略
+pre_img/
