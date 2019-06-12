@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2a12115-600a-414d-8ab8-f8f08d28e275" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/class/classifier.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/class/classifier.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo_beautyrecognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo_beautyrecognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify_face_image.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify_face_image.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_data/0164.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/demo_beautyrecognition.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="153" column="163" lean-forward="true" selection-start-line="153" selection-start-column="157" selection-end-line="153" selection-end-column="163" />
+            <state relative-caret-position="161">
+              <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -154,8 +150,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/demo_beautyrecognition.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="153" column="163" lean-forward="true" selection-start-line="153" selection-start-column="157" selection-end-line="153" selection-end-column="163" />
+        <state relative-caret-position="161">
+          <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

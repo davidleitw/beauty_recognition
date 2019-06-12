@@ -145,8 +145,9 @@ class Testing_tool(object):
                                                         lineType=2)
                                     '''
 
-                                    # if self.Image_show is True:
-                                        # cv2.imshow('Image {}'.format(idx+1), frame)
+                                    if self.Image_show is True:
+                                        cv2.imshow('Image {}'.format(idx+1), frame)
+                                        cv2.waitKey(0)
                                         # if cv2.waitkey(10000000) & 0xFF == ord('q'):
                                             # cv2.destroyAllWindows()
 
